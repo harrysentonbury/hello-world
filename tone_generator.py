@@ -23,10 +23,13 @@ def main():
                         help="Required duration in seconds", type=float)
     args = parser.parse_args()
 
-    if args.duration:
-        play(args.frequency, args.duration)
-    else:
-        play(args.frequency)
+    try:
+        if args.duration:
+            play(args.frequency, args.duration)
+        else:
+            play(args.frequency)
+    except ValueError:
+        return play(args.frequency)
 
 
 if __name__ == '__main__':
