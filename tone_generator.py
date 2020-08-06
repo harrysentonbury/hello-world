@@ -1,5 +1,4 @@
-
-# wot
+#!/usr/bin/env python3
 
 import argparse
 import numpy as np
@@ -20,7 +19,8 @@ def play(frequency=440, duration=1.5):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("frequency", help="The required frequency in hertz", type=float)
+    parser.add_argument(
+        "frequency", help="The required frequency in hertz", type=float)
     parser.add_argument("duration", nargs='?',
                         help="Required duration in seconds", type=float)
     args = parser.parse_args()
