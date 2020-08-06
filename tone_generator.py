@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# 1/usr/bin/env python3
 
 import argparse
 import numpy as np
@@ -7,7 +7,7 @@ import time
 
 
 def play(frequency=440, duration=1.5):
-    sample_rate = 44100
+    sample_rate = 48000
 
     x = np.linspace(0, duration, int(duration * sample_rate))
     wave = np.sin(2 * np.pi * x * frequency) * 0.3
@@ -20,20 +20,20 @@ def play(frequency=440, duration=1.5):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "frequency", help="The required frequency in hertz", type=float)
-    parser.add_argument("duration", nargs='?',
-                        help="Required duration in seconds", type=float)
+        "frequency", help="required frequency in hertz", type=float)
+    parser.add_argument("duration", nargs="?",
+                        help="required duration in seconds", type=float)
     args = parser.parse_args()
 
     try:
         if args.duration:
             play(args.frequency, args.duration)
         else:
-            play(args.frequency)
+            play(args.frequancy)
     except ValueError:
-        return play(args.frequency)
+        return play(args.frequancy)
     except KeyboardInterrupt:
-        parser.exit("\n Interrupt by user")
+        parser.exit("\n Interupt by user")
     except Exception as e:
         parser.exit(type(e).__name__ + ': ' + str(e))
 
