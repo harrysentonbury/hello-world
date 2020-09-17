@@ -12,7 +12,7 @@ pip3 install numpy
 pip3 install sounddevice
 ```
 
-Then run it.
+Then run it in the terminal.
 
 ```
 python3 tone_generator.py [frequency] [duration]
